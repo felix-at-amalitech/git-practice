@@ -29,7 +29,13 @@ jobs:
         run: |
           pytest ./
 
-      - name: Notify Slack  
+  slack_notification:
+    runs-on: ubuntu-latest
+    needs: test_python_add
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Notify Slack
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
