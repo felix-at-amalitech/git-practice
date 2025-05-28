@@ -40,4 +40,17 @@ jobs:
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
         with:
-          message: "*Deployment Status:* `${{ job.status }}`\n*Branch:* `${{ github.ref }}`\n*Commit:* `${{ github.sha }}`"
+          payload: |
+            {
+              "text": "Deployment to Production completed successfully!",
+              "attachments": [
+                {
+                  "color": "#36a64f",
+                  "title": "Deployment Status",
+                  "text": "The deployment to production has been completed successfully.",
+                  "footer": "GitHub Actions"
+                }
+              ]
+            }
+          status: "success"
+          channel: "#deployments"
