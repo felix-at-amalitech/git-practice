@@ -40,7 +40,4 @@ jobs:
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
         with:
-          message: |
-            *Deployment Status:* `${{ job.status }}`
-            *Branch:* `${{ github.ref }}`
-            *Commit:* `${{ github.sha }}`
+          message: "*Deployment Status:* `${{ job.status }}`\n*Branch:* `${{ github.ref }}`\n*Commit:* `${{ github.sha }}`"
