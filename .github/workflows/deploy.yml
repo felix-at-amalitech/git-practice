@@ -27,7 +27,7 @@ jobs:
 
       - name: Run tests
         run: |
-          pytest tests/
+          pytest ./
 
       - name: Notify Slack  
         uses: rtCamp/action-slack-notify@v2
