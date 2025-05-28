@@ -39,18 +39,8 @@ jobs:
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
-        with:
-          payload: |
-            {
-              "text": "Deployment to Production completed successfully!",
-              "attachments": [
-                {
-                  "color": "#36a64f",
-                  "title": "Deployment Status",
-                  "text": "The deployment to production has been completed successfully.",
-                  "footer": "GitHub Actions"
-                }
-              ]
-            }
-          status: "success"
-          channel: "#deployments"
+          SLACK_CHANNEL: "#deployments"
+          SLACK_COLOR: "#36a64f"
+          SLACK_TITLE: "Deployment Status"
+          SLACK_MESSAGE: "The deployment to production has been completed successfully."
+          SLACK_FOOTER: "GitHub Actions"
